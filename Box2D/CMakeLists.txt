@@ -21,17 +21,17 @@ set_target_properties(Box2D PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_
 
 SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Build/bin/")
 
-option(Build_HelloWorld "Builds small test executable" OFF)
+option(B2D_Build_HelloWorld "Builds small test executable" OFF)
 
-IF(${Build_HelloWorld})
+IF(${B2D_Build_HelloWorld})
     add_executable(HelloWorld "HelloWorld/HelloWorld.cpp")
     target_link_libraries(HelloWorld Box2D)
-ENDIF(${Build_HelloWorld})
+ENDIF(${B2D_Build_HelloWorld})
 
-option(Build_Testbed "Builds Tests" OFF)
+option(B2D_Build_Testbed "Builds Tests" OFF)
 
-IF(${Build_Testbed})
-    MESSAGE("Testbed not supported with CMake yet")
+IF(${B2D_Build_Testbed})
+    MESSAGE(FATAL_ERROR "Testbed not supported with CMake yet")
 #TODO
 #    file(GLOB_RECURSE GLEW_FILES  glew/**.c glew/**.h )
 #    add_library(GLEW STATIC ${GLEW_FILES})
@@ -44,4 +44,4 @@ IF(${Build_Testbed})
 #    file(GLOB_RECURSE TEST_FILES Testbed/**.cpp Testbed/**.h)
 #    add_executable(Testbed ${TEST_FILES})
 #    target_link_libraries(Testbed Box2D GLEW GLFW IMGUI)
-ENDIF(${Build_Testbed})
+ENDIF(${B2D_Build_Testbed})
